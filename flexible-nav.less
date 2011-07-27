@@ -1,0 +1,46 @@
+.transition-property(@p) {
+    transition-property: @p;
+    -moz-transition-property: @p;
+    -webkit-transition-property: @p;
+    -o-transition-property: @p;    
+}
+.transition-duration(@duration: 1s) {
+    transition-duration: @duration;
+    -moz-transition-duration: @duration;
+    -webkit-transition-duration: @duration;
+    -o-transition-duration: @duration;    
+}
+
+nav.flexible-nav {
+  position: fixed;
+  z-index: 10000;
+  right: 0px;
+  min-width: 20px;
+  height: 100%;
+  border-left: 4px dashed rgba(150,150,150,0.2);
+  background: white;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li a {
+      position: fixed;
+      right: 10px;
+      padding: 2px 6px;
+      margin: 10px 0;
+      text-decoration: none;
+      background: #666;
+      color: #eee;
+      opacity: 0.7;
+      .transition-duration(0.2s);
+      .transition-property(padding background color);
+      &:hover {
+        opacity: 1;
+        padding: 2px 12px 2px 6px;
+        background: #888;
+        color: #fff;
+      }
+    }
+  }
+}
