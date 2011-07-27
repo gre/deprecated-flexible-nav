@@ -9,7 +9,7 @@
 
   // Template for creating a nav element with links.
   //
-  // * arg `links` : an Array of *{ href, text }*
+  // * `links` : an Array of *{ href, text }*
   var tmplNav = function(links) {
     var nav = $('<nav class="flexible-nav"><ul></ul></nav>');
     var lis = $.map(links, function(link){
@@ -18,9 +18,10 @@
     nav.find('ul').append(lis);
     return nav;
   }
-    
-  var targetForLink = function(node) {
-    var href = $(node).attr('href');
+  
+  // Retrieve a node pointed by an a element `aEl` hash href.
+  var targetForLink = function(aEl) {
+    var href = $(aEl).attr('href');
     if(href.substring(0,1) == '#') {
       var target = $(href);
       return target.size() ? target : null;
@@ -33,12 +34,13 @@
   // ------------------------
   // Dynamically create a nav.
   //
-  // * arg `selector` (optional) : selector for all nodes to add in nav.
+  // * `selector` (optional) : selector for all nodes to add in nav.
   // using 'h1, h2, h3' if not setted.
   window.FlexibleNavMaker = function(selector) {
     var self = this;
     self.nodes = $(selector || 'h1,h2,h3');
     
+    // ### .make() ###
     // An instance of FlexibleNavMaker contains only a `make` method
     // which create the nav element with nodes matching `selector`.
     self.make = function() {
@@ -82,6 +84,8 @@
         }
       });
     }
+
+    // ### .update() ###
     // Update the nav element.
     self.update = function() {
       var height = $('body').height();
@@ -96,6 +100,7 @@
       });
     }
 
+    // ### Init ###
     // Bind window resize and init nav.
     $(window).resize(function(){
       self.update();
