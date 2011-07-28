@@ -6,8 +6,8 @@
 (function(){
   var base = window.flexibleNavBase;
   fullFunc({
-    css : [ base + "lib/flexible-nav.min.css"],
-    js  : [ base + "lib/flexible-nav.min.js" ],
+    css : [ base + "flexible-nav.min.css"],
+    js  : [ base + "flexible-nav.min.js" ],
     ready : function() {
       $('nav.flexible-nav').empty();
       new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );
