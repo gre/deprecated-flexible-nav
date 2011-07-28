@@ -9,7 +9,7 @@ of a document, an article,.. any web page.</p>
 <p>Nav links are <strong>distributed proportionnally</strong> to the page sections.
 See how <strong>your scrollbar <em>"weds"</em> this links</strong> :)</p>
 
-<p>You can use it easily on any website with the <em>Bookmarklet</em>.</p>
+<p>You can easily use it on any website with the <em>Bookmarklet</em>.</p>
 
 <p><strong>Drag and Drop this like to in your bookmark bar :</strong></p>
 
@@ -18,9 +18,9 @@ See how <strong>your scrollbar <em>"weds"</em> this links</strong> :)</p>
 <p><strong>This page is a 3-in-one document!</strong></p>
 
 <ul>
-<li>First, it presents <strong>a library usage</strong> 
+<li>First, it explains goal and possible usages of the library.</li>
+<li>Second, it presents <strong>a library usage</strong> 
 (see the flexible box right panel?).</li>
-<li>Second, it explains goal and possible usages of the library.</li>
 <li>Third, it show and comment the <strong>annotated JS code</strong> (thanks to docco)</li>
 </ul>
 
@@ -35,7 +35,7 @@ providing elements to display in navigation.</p>
 the different sections of a document but you can override this
 elements selector.</p>
 
-<p>You have usually two kind of selected element usages:</p>
+<p>You have usually two kind of selected elements to use:</p>
 
 <ul>
 <li><strong>Select a title</strong>. The link will takes the title as text.</li>
@@ -48,11 +48,13 @@ set it with the text you want.</li>
 <ul>
 <li><p>Simple usage used in this page</p>
 
-<p>var nav = new FlexibleNavMaker().make().prependTo('body');
-new FlexibleNav(nav);</p></li>
+<pre><code>var nav = new FlexibleNavMaker().make().prependTo('body');
+new FlexibleNav(nav);
+</code></pre></li>
 <li><p>Selecting element you want</p>
 
-<p>new FlexibleNavMaker(".navtitle");</p></li>
+<pre><code>new FlexibleNavMaker(".navtitle");
+</code></pre></li>
 </ul>
 
 <p>Using this code, all nodes having this <code>navtitle</code> class 
@@ -65,10 +67,11 @@ Conventionnally, you need to use
 a <code>&lt;nav /&gt;</code> element with a <code>flexible-nav</code> class.</p>
 
 <ul>
-<li>Add Flexibility to existing nav</li>
-</ul>
+<li><p>Add Flexibility to existing nav</p>
 
-<p><code>new FlexibleNav($('#myNav'));</code></p>
+<pre><code>new FlexibleNav($('#myNav'));
+</code></pre></li>
+</ul>
 
 <p><em>(replace myNav by you nav id)</em></p>             </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*!</span>
 <span class="cm"> * Flexible Nav - 2011 - by @greweb</span>

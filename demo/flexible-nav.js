@@ -9,7 +9,7 @@
 // Nav links are **distributed proportionnally** to the page sections.
 // See how **your scrollbar *"weds"* this links** :)
 //
-// You can use it easily on any website with the *Bookmarklet*.
+// You can easily use it on any website with the *Bookmarklet*.
 //
 // **Drag and Drop this like to in your bookmark bar :**
 //
@@ -17,9 +17,9 @@
 //
 // **This page is a 3-in-one document!**
 //
-// * First, it presents **a library usage** 
+// * First, it explains goal and possible usages of the library.
+// * Second, it presents **a library usage** 
 // (see the flexible box right panel?).
-// * Second, it explains goal and possible usages of the library.
 // * Third, it show and comment the **annotated JS code** (thanks to docco)
 //
 // Usages
@@ -34,7 +34,7 @@
 // the different sections of a document but you can override this
 // elements selector.
 //
-// You have usually two kind of selected element usages:
+// You have usually two kind of selected elements to use:
 //
 // * **Select a title**. The link will takes the title as text.
 // * **Select any container** and add a **`data-navtext` attribute** and
@@ -44,12 +44,12 @@
 //
 // * Simple usage used in this page
 //
-//		var nav = new FlexibleNavMaker().make().prependTo('body');
-//		new FlexibleNav(nav);
+//			var nav = new FlexibleNavMaker().make().prependTo('body');
+//			new FlexibleNav(nav);
 //
 //	* Selecting element you want
 //
-//		new FlexibleNavMaker(".navtitle");
+//			new FlexibleNavMaker(".navtitle");
 //
 //	Using this code, all nodes having this `navtitle` class 
 //	will appear in the flexible nav panel.
@@ -62,7 +62,7 @@
 //
 // * Add Flexibility to existing nav
 //
-// `new FlexibleNav($('#myNav'));`
+//			new FlexibleNav($('#myNav'));
 //
 // *(replace myNav by you nav id)*
 //
