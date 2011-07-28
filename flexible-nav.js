@@ -80,7 +80,7 @@
         if(target) {
           // Set the **target node name**.
           // Example: class `tnn-h1`
-          node.addClass('tnn-'+target[0].nodeName.toLowerCase()); 
+          node.addClass('tnn-'+target[0].nodeName.toLowerCase());
         }
       });
     }
@@ -96,6 +96,10 @@
         if(target) {
           var percent = 100*target.offset().top/height;
           node.css('top', percent+'%');
+          if(target.is(':visible'))
+            node.show();
+          else
+            node.hide();
         }
       });
     }
