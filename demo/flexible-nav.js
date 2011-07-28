@@ -1,6 +1,6 @@
-// Flexible Box Javascript Library.
+// Flexible Nav Javascript Library.
 // ================================
-// **Flexible Box** is a **Javascript** library
+// **Flexible Nav** is a **Javascript** library
 // which add a right navigation panel.
 // It improves a web page **navigation** and help
 // to **visualize** different sections
