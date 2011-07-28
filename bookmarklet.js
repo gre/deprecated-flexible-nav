@@ -5,12 +5,18 @@
 
 (function(){
   var base = window.flexibleNavBase;
+  var LINK_LIMIT = 20;
+
   fullFunc({
     css : [ base + "flexible-nav.min.css"],
     js  : [ base + "flexible-nav.min.js" ],
     ready : function() {
       $('nav.flexible-nav').remove();
-      new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );
+      var headers = ['h1'];
+      for(var i=2; $( headers.join(',') ).size()<LINK_LIMIT && i<=3; ++i) {
+        headers.push('h'+i);
+      }
+      new FlexibleNav( new FlexibleNavMaker( headers.join(',') ).make().prependTo('body') );
     }
   });
 }());
