@@ -1,6 +1,6 @@
-// Flexible Nav Javascript Library.
+// Flexible Nav jQuery library.
 // ================================
-// **Flexible Nav** is a **Javascript** library
+// **Flexible Nav** is a small **jQuery** library
 // which add a right navigation panel.
 // It improves a web page **navigation** and help
 // to **visualize** different sections
@@ -74,7 +74,7 @@
 // The code
 // ========
 //
-(function(){
+(function($){
   "use strict";
 
   // **Utilities functions**
@@ -188,4 +188,4 @@
     self.updateClasses();
     self.update();
   }
-}());
+}(jQuery));
