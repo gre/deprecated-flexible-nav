@@ -4,14 +4,17 @@ LESSOPT=-x
 JSMINC=yuicompressor
 JSMINOPT=
 
-JSDOCC=docco
+JSDOCC=./docco/bin/docco
 JSDOCOPT=
 
-all: lib/flexible-nav.min.css lib/flexible-nav.min.js lib/bookmarklet.min.js docs/flexible-nav.html demo/flexible-nav.js demo/flexible-nav.min.css
+all: lib/flexible-nav.min.css demo/index.html lib/flexible-nav.min.js lib/bookmarklet.min.js docs/flexible-nav.html demo/flexible-nav.js demo/flexible-nav.min.css
 
 lib/flexible-nav.min.css: flexible-nav.less
 lib/flexible-nav.min.js: flexible-nav.js
 lib/bookmarklet.min.js: bookmarklet.js
+
+demo/index.html: docs/flexible-nav.html
+	cp $< $@
 
 docs/flexible-nav.html: flexible-nav.js
 
@@ -35,4 +38,4 @@ lib/%.min.js: %.js
 
 
 clean: 
-	rm -rf docs/* lib/* demo/flexible-nav.js demo/flexible-nav.min.css
+	rm -rf docs/* lib/* demo/index.html demo/flexible-nav.js demo/flexible-nav.min.css
