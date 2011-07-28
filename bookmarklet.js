@@ -9,7 +9,7 @@
     css : [ base + "flexible-nav.min.css"],
     js  : [ base + "flexible-nav.min.js" ],
     ready : function() {
-      $('nav.flexible-nav').empty();
+      $('nav.flexible-nav').remove();
       new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );
     }
   });
