@@ -1,27 +1,33 @@
-<!DOCTYPE html>  <html> <head>   <title>flexible-nav.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" />   <link rel="stylesheet" media="all" href="demo.css" />   <link rel="stylesheet" media="all" href="flexible-nav.min.css" />     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>  <script type="text/javascript" src="flexible-nav.js"></script>  <script type="text/javascript">  $(function(){   new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );  });  </script> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <h1>Flexible Nav jQuery library.</h1>
+<!DOCTYPE html>  <html> <head>   <title>flexible-nav.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" />   <link rel="stylesheet" media="all" href="demo.css" />   <link rel="stylesheet" media="all" href="flexible-nav.min.css" />     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>  <script type="text/javascript" src="flexible-nav.min.js"></script>  <script type="text/javascript">  $(function(){   new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );  });  </script> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <h1>Flexible Nav jQuery library.</h1>
 
 <p><strong>Flexible Nav</strong> is a small <strong>jQuery</strong> library
-which add a right navigation panel.
-It improves a web page <strong>navigation</strong> and help
+which add a smart nav sidebar to the right.
+It improves a web page <strong>navigation</strong> and helps
 to <strong>visualize</strong> different sections
 of a document, an article,.. any web page.</p>
 
-<p>Nav links are <strong>distributed proportionnally</strong> to the page sections.
+<p>Nav links are <strong>distributed proportionally</strong> to the page sections.
 See how <strong>your scrollbar <em>"weds"</em> these links</strong> :)</p>
+
+<hr />
 
 <p>You can easily use it on any website with the <em>Bookmarklet</em>.</p>
 
-<p><strong>Drag and Drop this like to in your bookmark bar :</strong></p>
+<p><strong>Save this bookmark</strong> by drag and dropping it in your bar...</p>
 
-<p><a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">Flexible Nav Bookmarklet</a></p>
+<p><a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">FlexibleNav bookmarklet</a></p>
+
+<p>...and <strong>click on it in any website</strong>!</p>
+
+<hr />
 
 <p><strong>This page is a 3-in-one document!</strong></p>
 
 <ul>
-<li>First, it explains goal and possible usages of the library.</li>
+<li>First, it explains goals and possible usages of the library.</li>
 <li>Second, it presents <strong>a library usage</strong> 
-(see the flexible box right panel?).</li>
-<li>Third, it shows the <strong>annotated JS code</strong> (thanks to docco)</li>
+<em>(see this flexible box right panel?)</em>.</li>
+<li>Third, it shows the <strong>annotated JS code</strong> <em>(thanks to docco)</em></li>
 </ul>
 
 <h2>Download</h2>
@@ -30,7 +36,7 @@ See how <strong>your scrollbar <em>"weds"</em> these links</strong> :)</p>
 
 <h2>Usages</h2>
 
-<h4>Generation + Flexibility</h4>
+<h4>Generation and Flexibility</h4>
 
 <p>The library can generate for you the nav sidebar content
 providing elements to display in navigation.</p>
@@ -43,35 +49,35 @@ elements selector.</p>
 
 <ul>
 <li><strong>Select a title</strong>. The link will take the title as text.</li>
-<li><strong>Select any container</strong> and add a <strong><code>data-navtext</code> attribute</strong> and
-set it with the text you want.</li>
+<li><strong>Select any container</strong> and add a <strong><code>data-navtext</code> attribute</strong>
+to define the title you want.</li>
 </ul>
 
 <p>Example: <code>&lt;div id="demo" data-navtext="Demo of the game"&gt;...</code></p>
 
 <ul>
-<li><p>Simple usage used in this page</p>
+<li><p><strong>Simple usage used in this page</strong></p>
 
 <pre><code>var nav = new FlexibleNavMaker().make().prependTo('body');
 new FlexibleNav(nav);
 </code></pre></li>
-<li><p>Selecting element you want</p>
+<li><p><strong>Selecting element you want</strong></p>
 
 <pre><code>new FlexibleNavMaker(".navtitle");
 </code></pre></li>
 </ul>
 
-<p>Using this code, all nodes having this <code>navtitle</code> class 
+<p>Using this code bellow, all nodes having this <code>navtitle</code> class 
 will appear in the flexible nav panel.</p>
 
 <h4>Flexibility only</h4>
 
-<p>You can also generate your own nav links to have more controls of used links.
+<p>You can also create your own nav links to have more controls of used links.
 Conventionnally, you need to use
-a <code>&lt;nav /&gt;</code> element with a <code>flexible-nav</code> class.</p>
+a <code>&lt;nav /&gt;</code> element with a <code>flexible-nav</code> class and <code>&lt;a href="#myidtarget" /&gt;</code> kind of elements for links.</p>
 
 <ul>
-<li><p>Add Flexibility to existing nav</p>
+<li><p><strong>Add flexibility to an existing nav</strong></p>
 
 <pre><code>new FlexibleNav($('#myNav'));
 </code></pre></li>

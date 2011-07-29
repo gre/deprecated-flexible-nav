@@ -1,26 +1,32 @@
 // Flexible Nav jQuery library.
 // ================================
 // **Flexible Nav** is a small **jQuery** library
-// which add a right navigation panel.
-// It improves a web page **navigation** and help
+// which add a smart nav sidebar to the right.
+// It improves a web page **navigation** and helps
 // to **visualize** different sections
 // of a document, an article,.. any web page.
 //
-// Nav links are **distributed proportionnally** to the page sections.
+// Nav links are **distributed proportionally** to the page sections.
 // See how **your scrollbar *"weds"* these links** :)
+//
+// - - -
 //
 // You can easily use it on any website with the *Bookmarklet*.
 //
-// **Drag and Drop this like to in your bookmark bar :**
+// **Save this bookmark** by drag and dropping it in your bar...
 //
-// <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">Flexible Nav Bookmarklet</a>
+// <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">FlexibleNav bookmarklet</a>
+//
+// ...and **click on it in any website**!
+// 
+// - - -
 //
 // **This page is a 3-in-one document!**
 //
-// * First, it explains goal and possible usages of the library.
+// * First, it explains goals and possible usages of the library.
 // * Second, it presents **a library usage** 
-// (see the flexible box right panel?).
-// * Third, it shows the **annotated JS code** (thanks to docco)
+// _(see this flexible box right panel?)_.
+// * Third, it shows the **annotated JS code** _(thanks to docco)_
 //
 // Download
 // --------
@@ -30,7 +36,7 @@
 // Usages
 // ----- 
 // 
-// #### Generation + Flexibility ####
+// #### Generation and Flexibility ####
 //
 // The library can generate for you the nav sidebar content
 // providing elements to display in navigation.
@@ -42,30 +48,30 @@
 // You have usually two kind of selected elements to use:
 //
 // * **Select a title**. The link will take the title as text.
-// * **Select any container** and add a **`data-navtext` attribute** and
-// set it with the text you want.
+// * **Select any container** and add a **`data-navtext` attribute**
+// to define the title you want.
 //
 // Example: `<div id="demo" data-navtext="Demo of the game">...`
 //
-// * Simple usage used in this page
+// * **Simple usage used in this page**
 //
 //			var nav = new FlexibleNavMaker().make().prependTo('body');
 //			new FlexibleNav(nav);
 //
-// * Selecting element you want
+// * **Selecting element you want**
 //
 //			new FlexibleNavMaker(".navtitle");
 //
-//	Using this code, all nodes having this `navtitle` class 
+//	Using this code bellow, all nodes having this `navtitle` class 
 //	will appear in the flexible nav panel.
 //
 // #### Flexibility only ####
 //
-// You can also generate your own nav links to have more controls of used links.
+// You can also create your own nav links to have more controls of used links.
 // Conventionnally, you need to use
-// a `<nav />` element with a `flexible-nav` class.
+// a `<nav />` element with a `flexible-nav` class and `<a href="#myidtarget" />` kind of elements for links.
 //
-// * Add Flexibility to existing nav
+// * **Add flexibility to an existing nav**
 //
 //			new FlexibleNav($('#myNav'));
 //
