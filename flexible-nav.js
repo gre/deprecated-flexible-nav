@@ -123,7 +123,7 @@
   // Dynamically create a nav.
   //
   // * `selector` (optional) : selector for all nodes to add in nav.
-  // using 'h1, h2, h3' if not setted.
+  // using `h1, h2, h3` if not setted.
   window.FlexibleNavMaker = function(selector) {
     var self = this;
     self.nodes = $(selector || 'h1,h2,h3');
@@ -190,7 +190,7 @@
         };
       });
 
-      // Update nav links positions.
+      // Update nav link positions.
       $.each(links, function(i, link) {
          link.node.css('top', (100*link.top/documentHeight)+'%');
       });
@@ -207,7 +207,7 @@
     }
 
     // ### Init ###
-    // Bind window resize and scroll and init nav.
+    // Bind scroll event and init nav.
     $(window).scroll(function(){
     	self.update();
     });
