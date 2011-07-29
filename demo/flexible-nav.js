@@ -7,20 +7,25 @@
 // of a document, an article,.. any web page.
 //
 // Nav links are **distributed proportionnally** to the page sections.
-// See how **your scrollbar *"weds"* this links** :)
+// See how **your scrollbar *"weds"* these links** :)
 //
 // You can easily use it on any website with the *Bookmarklet*.
 //
 // **Drag and Drop this like to in your bookmark bar :**
 //
-//  <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">Flexible Nav Bookmarklet</a>
+// <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">Flexible Nav Bookmarklet</a>
 //
 // **This page is a 3-in-one document!**
 //
 // * First, it explains goal and possible usages of the library.
 // * Second, it presents **a library usage** 
 // (see the flexible box right panel?).
-// * Third, it show and comment the **annotated JS code** (thanks to docco)
+// * Third, it shows the **annotated JS code** (thanks to docco)
+//
+// Download
+// --------
+//
+// <a class="download" target="_blank" href="https://github.com/gre/flexible-nav">Download or fork me on github</a>
 //
 // Usages
 // ----- 
@@ -30,13 +35,13 @@
 // The library can generate for you the nav sidebar content
 // providing elements to display in navigation.
 //
-// By default, it use `h1` to `h3` elements to retrieve and locate
-// the different sections of a document but you can override this
+// By default, it uses `h1` to `h3` elements to retrieve and locate
+// the different sections of a document but you can override these
 // elements selector.
 //
 // You have usually two kind of selected elements to use:
 //
-// * **Select a title**. The link will takes the title as text.
+// * **Select a title**. The link will take the title as text.
 // * **Select any container** and add a **`data-navtext` attribute** and
 // set it with the text you want.
 //
@@ -47,7 +52,7 @@
 //			var nav = new FlexibleNavMaker().make().prependTo('body');
 //			new FlexibleNav(nav);
 //
-//	* Selecting element you want
+// * Selecting element you want
 //
 //			new FlexibleNavMaker(".navtitle");
 //
@@ -94,6 +99,7 @@
     nav.find('ul').append(lis);
     return nav;
   }
+  
 
   // Retrieve a node pointed by an a element `aEl` hash href.
   var targetForLink = function(aEl) {
@@ -122,6 +128,7 @@
     self.make = function() {
       var links = self.nodes.map(function(){
         var node = $(this);
+	// Find the id or create a unique one
         var id = node.attr('id');
         if(!id) {
           while(!id) {
@@ -130,10 +137,9 @@
           }
           node.attr('id', id);
         }
-        return {
-          href: '#'+id,
-          text: node.attr('data-navtext') || node.text()
-        }
+	// The text link is the `data-navtext` attribute or the node text.
+        var text = node.attr('data-navtext') || node.text();
+	return { href: '#'+id, text: text };
       });
       return tmplNav(links);
     }
@@ -148,42 +154,56 @@
     var self = this;
     self.nav = $(nav);
 
-    // Init links adding some classes
+    // Init links adding some classes.
+    //
+    // Set the target node name class.
+    // Example: class `tnn-h1`
     self.updateClasses = function() {
       self.nav.find('a').each(function(){
         var node = $(this);
         var target = targetForLink(node);
         if(target) {
-          // Set the **target node name**.
-          // Example: class `tnn-h1`
-          node.addClass('tnn-'+target[0].nodeName.toLowerCase());
+           node.addClass('tnn-'+target[0].nodeName.toLowerCase());
         }
       });
     }
 
     // ### .update() ###
-    // Update the nav element.
     self.update = function() {
-      var height = $('body').height();
-      var windowHeight = $('window').height();
-      self.nav.find('a').each(function() {
+      var documentHeight = $(document).height();
+      var windowHeight = $(window).height();
+      
+      // Transform links into array of visible target `top` position and link `node`.
+      var links = self.nav.find('a').map(function(){
         var node = $(this);
         var target = targetForLink(node);
-        if(target) {
-          var percent = 100*target.offset().top/height;
-          node.css('top', percent+'%');
-          if(target.is(':visible'))
-            node.show();
-          else
-            node.hide();
-        }
+        if(target==null || !target.is(':visible')) return null;
+        return {
+          top: target.offset().top,
+          node: node
+        };
       });
+
+      // Update nav links positions.
+      $.each(links, function(i, link) {
+         link.node.css('top', (100*link.top/documentHeight)+'%');
+      });
+
+      // Update current section.
+      var scrollTop = $(document).scrollTop();
+      var closest = null;
+      $.each(links, function(i, link){
+        link.node.removeClass('current');
+        if(closest==null || (link.top <= scrollTop && link.top > closest.top))
+          closest = link;
+      });
+      closest && closest.node.addClass('current');
     }
 
     // ### Init ###
-    // Bind window resize and init nav.
-    $(window).resize(function(){
-      self.update();
+    // Bind window resize and scroll and init nav.
+    $(window).scroll(function(){
+    	self.update();
     });
     self.updateClasses();
     self.update();
