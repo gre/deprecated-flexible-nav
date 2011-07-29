@@ -200,7 +200,7 @@
       var closest = null;
       $.each(links, function(i, link){
         link.node.removeClass('current');
-        if(closest==null || (link.top <= scrollTop && link.top > closest.top))
+        if(closest==null || (link.top <= scrollTop+10 && link.top > closest.top))
           closest = link;
       });
       closest && closest.node.addClass('current');
