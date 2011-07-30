@@ -1,7 +1,7 @@
 // Flexible Nav jQuery library.
 // ================================
 // **Flexible Nav** is a small **jQuery** library
-// which add a smart nav sidebar to the right.
+// which add a smart navigation bar on the right of the page.
 // It improves a web page **navigation** and helps
 // to **visualize** different sections
 // of a document, an article,.. any web page.
@@ -30,6 +30,7 @@
 //
 // Download
 // --------
+// You can also use it in your websites.
 //
 // <a class="download" target="_blank" href="https://github.com/gre/flexible-nav">Download or fork me on github</a>
 //
