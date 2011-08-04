@@ -42,7 +42,7 @@
     return sections;
   };
   highlight = function(source, sections, callback) {
-    var language, output, pygments, section, _i, _len, _results;
+    var language, output, pygments, section;
     language = get_language(source);
     pygments = spawn('pygmentize', ['-l', language.name, '-f', 'html']);
     output = '';
@@ -67,14 +67,15 @@
       }
       return callback();
     });
-    pygments.stdin.write((function() {
+    pygments.stdin.write(((function() {
+      var _i, _len, _results;
       _results = [];
       for (_i = 0, _len = sections.length; _i < _len; _i++) {
         section = sections[_i];
         _results.push(section.code_text);
       }
       return _results;
-    }()).join(language.divider_text));
+    })()).join(language.divider_text));
     return pygments.stdin.end();
   };
   generate_html = function(source, sections) {
@@ -126,13 +127,13 @@
   destination = function(filepath) {
     return 'docs/' + path.basename(filepath, path.extname(filepath)) + '.html';
   };
-  ensure_directory = function(callback) {
-    return exec('mkdir -p docs', function() {
+  ensure_directory = function(dir, callback) {
+    return exec("mkdir -p " + dir, function() {
       return callback();
     });
   };
   template = function(str) {
-    return new Function('obj', 'var p=[],print=function(){p.push.apply(p,arguments);};' + 'with(obj){p.push(\'' + str.replace(/[\r\t\n]/g, " ").replace(/'(?=[^<]*%>)/g, "\t").split("'").join("\\'").split("\t").join("'").replace(/<%=(.+?)%>/g, "',$1,'").split('<%').join("');").split('%>').join("p.push('") + "');}return p.join('');");
+    return new Function('obj', 'var p=[],print=function(){p.push.apply(p,arguments);};' + 'with(obj){p.push(\'' + str.replace(/[\r\t\n]/g, "\\n").replace(/'(?=[^<]*%>)/g, "\t").split("'").join("\\'").split("\t").join("'").replace(/<%=(.+?)%>/g, "',$1,'").split('<%').join("');").split('%>').join("p.push('") + "');}return p.join('');");
   };
   docco_template = template(fs.readFileSync(__dirname + '/../resources/docco.jst').toString());
   docco_styles = fs.readFileSync(__dirname + '/../resources/docco.css').toString();
@@ -140,7 +141,7 @@
   highlight_end = '</pre></div>';
   sources = process.ARGV.sort();
   if (sources.length) {
-    ensure_directory(function() {
+    ensure_directory('docs', function() {
       var files, next_file;
       fs.writeFile('docs/docco.css', docco_styles);
       files = sources.slice(0);

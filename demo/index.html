@@ -2,26 +2,34 @@
 
 <html>
 <head>
-  <title>flexible-nav.js</title>
+  <meta content="Flexible Nav is a jQuery library which uses HTML5 nav element to improve navigation and visualization of an HTML document." name="Description"/>
+  <meta content="flexible nav jquery javascript library JS HTML5 CSS" name="Keywords"/>
+  <title>Flexible Nav jQuery library</title> 
+  
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" media="all" href="docco.css" />
+  <link rel="stylesheet" media="all" href="demo.css" />
+  <link rel="stylesheet" media="all" href="flexible-nav.min.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+<script type="text/javascript" src="flexible-nav.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+
+new FlexibleNav( new FlexibleNavMaker().make().prependTo('body') );
+
+});
+
+</script>
 </head>
 <body>
   <div id="container">
     <div id="background"></div>
     
     <table cellpadding="0" cellspacing="0">
-      <thead>
-        <tr>
-          <th class="docs">
-            <h1>
-              flexible-nav.js
-            </h1>
-          </th>
-          <th class="code">
-          </th>
-        </tr>
-      </thead>
       <tbody>
         
           
@@ -424,5 +432,17 @@ Example: class <code>tnn-h1</code></p>
       </tbody>
     </table>
   </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9919624-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.gasrc = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>
