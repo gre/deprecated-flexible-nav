@@ -7,7 +7,7 @@ JSMINOPT=
 JSDOCC=./docco/bin/docco
 JSDOCOPT=
 
-VERSION=1.0
+VERSION=1.0.1
 ZNAME=flexible-nav-${VERSION}
 
 
