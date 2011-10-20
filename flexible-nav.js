@@ -81,6 +81,7 @@
 
 /*!
  * Flexible Nav - 2011 - by @greweb
+ * http://www.apache.org/licenses/LICENSE-2.0
  */
 
 // The code
