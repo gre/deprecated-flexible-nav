@@ -1,6 +1,7 @@
 See http://demo.greweb.fr/flexible-nav for documentation.
 
-h2. License
+License
+=======
 
 Copyright 2011 Gaetan Renaudeau
 
