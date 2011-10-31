@@ -137,7 +137,7 @@
       var links = self.nodes.map(function(){
         var node = $(this);
 	// Find the id or create a unique one
-        var id = node.attr('id');
+        var id = node.attr('id') || node.attr('name');
         if(!id) {
           while(!id) {
             id = 'n'+( uuid() );
