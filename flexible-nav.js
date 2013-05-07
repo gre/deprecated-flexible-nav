@@ -15,7 +15,7 @@
 //
 // **Save this bookmark** by drag and dropping it in your bar...
 //
-// <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://lib.greweb.fr/flexible-nav/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">FlexibleNav bookmarklet</a>
+// <a class="bookmark" title="Flexible Nav bookmarklet" href="javascript:(function(){window.flexibleNavBase='http://gre.github.io/flexible-nav/lib/';var a=document.getElementsByTagName('head')[0],b=document.createElement('script');b.type='text/javascript';b.src=flexibleNavBase+'bookmarklet.min.js';a.appendChild(b);})(); void 0" target="_blank">FlexibleNav bookmarklet</a>
 //
 // ...and **click on it in any website**!
 // 
